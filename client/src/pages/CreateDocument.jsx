@@ -7,6 +7,8 @@ import SummarySection from '../components/SummarySection';
 import FooterSection from '../components/FooterSection';
 import PDFPreview from '../components/PDFPreview';
 
+import PatientDetails from '../components/PatientDetails';
+
 const CreateDocument = () => {
     const [type, setType] = useState('Bill');
     const [firmDetails, setFirmDetails] = useState({
@@ -15,6 +17,11 @@ const CreateDocument = () => {
         gst: '',
         dl: '',
         contact: ''
+    });
+
+    const [patientDetails, setPatientDetails] = useState({
+        doctorName: '',
+        patientName: ''
     });
 
     const [items, setItems] = useState([
@@ -64,6 +71,7 @@ const CreateDocument = () => {
             </div>
 
             <FirmDetails firmDetails={firmDetails} setFirmDetails={setFirmDetails} />
+            <PatientDetails patientDetails={patientDetails} setPatientDetails={setPatientDetails} />
             <LineItemTable items={items} setItems={setItems} />
 
             <div className="bottom-section">
@@ -76,6 +84,7 @@ const CreateDocument = () => {
             <PDFPreview data={{
                 type,
                 firmDetails,
+                patientDetails,
                 items,
                 calculations
             }} />

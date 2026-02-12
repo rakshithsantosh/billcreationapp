@@ -4,6 +4,7 @@ const cors = require('cors');
 const documentRoutes = require('./routes/documentRoutes');
 
 const app = express();
+// Force Restart Trigger
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
